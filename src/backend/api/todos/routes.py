@@ -1,9 +1,22 @@
 from fastapi import APIRouter
+from .. import db  # import the db module from the current package
 
 
 router = APIRouter()
 
-todos = [{'id': 1, 'title': 'First Todo', 'description': 'This is the first todo', 'done': False}]
+todos = []
+def load_todos():
+    cursor = db.db.cursor()
+    cursor.execute("SELECT * FROM TODOS")
+    for todo in cursor.fetchall():
+        todos.append({'id': todo[0], 'title': todo[1], 'description': todo[2], 'done': todo[3]})
+    cursor.close()
+    return todos
+
+
+
+
+print(load_todos())
 
 @router.get("/")
 async def index():
