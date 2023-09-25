@@ -43,3 +43,10 @@ ssh -T git@github.com (commit with YES)
 git remote add origin https://github.com/dopric/gh_getting_started.git
 ## verify
 git remote -v
+
+branch
+
+git checkout -b "branch_name"
+
+git status
+git push -u origin branch_name
