@@ -50,3 +50,7 @@ git checkout -b "branch_name"
 
 git status
 git push -u origin branch_name
+
+# resolving conflicts
+git pull origin master
+git commit -am "resolved conflicts"
