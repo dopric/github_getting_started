@@ -1,0 +1,13 @@
+name: sample-workflow
+on: [push]
+jobs:
+  explore-first-workflow:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Just testing"
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - run: echo "Checkout done"
+      - name: "List files"
+        run: ls ${{github.workspace}}
+      - run: echo "Job done"
